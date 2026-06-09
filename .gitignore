@@ -1,6 +1,10 @@
 # macOS
 .DS_Store
 
+# Project docs (local only — contain internal notes)
+CLAUDE.md
+SITE-CONTEXT.md
+
 # Reference screenshots (local only, do not commit)
 /About.png
 /Leadership.png
