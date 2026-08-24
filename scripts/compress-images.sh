@@ -36,7 +36,18 @@ for f in "${files[@]}"; do
   base="${name%.*}"
   out="$OUTPUT_DIR/${base}.jpg"
 
-  sips -Z "$MAX_PX" -s format jpeg -s formatOptions "$QUALITY" "$f" --out "$out" >/dev/null 2>&1
+  # Only pass -Z when the image actually exceeds the cap — sips -Z
+  # scales UP smaller images to fit the target too, which would upscale
+  # (and blur) any photo already under the cap.
+  w=$(sips -g pixelWidth "$f" | awk '/pixelWidth/{print $2}')
+  h=$(sips -g pixelHeight "$f" | awk '/pixelHeight/{print $2}')
+  longest=$(( w > h ? w : h ))
+
+  if [ "$longest" -gt "$MAX_PX" ]; then
+    sips -Z "$MAX_PX" -s format jpeg -s formatOptions "$QUALITY" "$f" --out "$out" >/dev/null 2>&1
+  else
+    sips -s format jpeg -s formatOptions "$QUALITY" "$f" --out "$out" >/dev/null 2>&1
+  fi
 
   before=$(stat -f%z "$f")
   after=$(stat -f%z "$out")
