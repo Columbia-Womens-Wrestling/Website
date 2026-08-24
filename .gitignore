@@ -1,14 +1,12 @@
 # macOS
 .DS_Store
 
+# Claude Code local settings (personal permission grants, not shared)
+.claude/
+
 # Project docs (local only — contain internal notes)
 CLAUDE.md
 SITE-CONTEXT.md
 
 # Reference screenshots (local only, do not commit)
-/About.png
-/Leadership.png
-/Gallary.png
-/Schedule.png
-/Donate.png
-/Contact Us.png
+/img/reference/

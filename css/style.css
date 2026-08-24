@@ -81,7 +81,7 @@ body {
 .hero {
   min-height: 100vh;
   background-color: var(--blue-dark);
-  background-image: url('../img/hero-media-day-new.jpg');
+  background-image: url('../img/hero/hero-media-day-new.jpg');
   background-size: cover;
   background-position: center 35%;
   position: relative;
@@ -196,17 +196,16 @@ body {
   overflow: hidden;
 }
 
-/* crown as centered background watermark */
+/* lion as centered background watermark — full color, semi-transparent */
 .stats-crown {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 55%;
-  max-width: 600px;
-  opacity: 0.07;
+  width: 38%;
+  max-width: 400px;
+  opacity: 0.28;
   pointer-events: none;
-  filter: brightness(0) invert(1);
 }
 
 .stats-row {
@@ -663,7 +662,7 @@ body {
 /* subtle crown watermark in each CTA panel */
 .cta-crown {
   position: absolute;
-  bottom: -10%;
+  bottom: 10px;
   right: -5%;
   width: 55%;
   max-width: 320px;
@@ -964,6 +963,7 @@ body {
 
 .schedule-pending {
   margin-top: 2rem;
+  background-color: var(--neutral-bg);
   border: 2px solid var(--neutral-light);
   border-radius: 8px;
   padding: 2.5rem;
